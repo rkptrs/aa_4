@@ -1,0 +1,88 @@
+function [] = AVL_file(sref,cref,bref,xrlet, yrlet, zrlet, crlet, arlet,xtlet, ytlet, ztlet, ctlet, atlet);
+
+% EMWET 
+fid = fopen('AVL_input.avl', 'wt');
+    fprintf(fid,'%s\n','Wing');
+    fprintf(fid,'%s\n','# AVL input file');
+    fprintf(fid,'%s\n','# Mach');
+    fprintf(fid,'%g\n',0.6);
+
+    fprintf(fid,'%s\n','# iYsym iZsym Zsym');
+    fprintf(fid,'%g %g %g \n',0, 0, 0);
+    fprintf(fid,'%s\n','# Sref Cref Bref');
+    fprintf(fid,'%g %g %g \n',sref, cref, bref);
+    fprintf(fid,'%s\n','# Xref Yref Zref');
+    fprintf(fid,'%g %g %g \n',0, 0, 0);
+
+    fprintf(fid,'%s\n','# ==========================================================');
+    fprintf(fid,'%s\n','#                         WING ');
+    fprintf(fid,'%s\n','# ==========================================================');
+    fprintf(fid,'%s\n','SURFACE');
+    fprintf(fid,'%s\n','MainWing');
+    fprintf(fid,'%s\n','# Nchord Cspace [ Nspan Sspace ]'); 
+    fprintf(fid,'%g %g %g %g\n',8, 1.0, 48, 0);
+    fprintf(fid,'%s\n','# Wing is symmetrical to y=0');
+    fprintf(fid,'%s\n','YDUPLICATE');
+    fprintf(fid,'%g\n',0);
+    fprintf(fid,'%s\n','INDEX');
+    fprintf(fid,'%g\n',1);
+    fprintf(fid,'%s\n','ANGLE');
+    fprintf(fid,'%g\n',0);
+    fprintf(fid,'%s\n','# ----------------------------------------------------------');
+    fprintf(fid,'%s\n','SECTION');
+    fprintf(fid,'%s\n','# Xle Yle Zle Chord Ainc');
+    fprintf(fid,'%g %g %g %g %g\n',0, 0, 0, 6, 0);
+    fprintf(fid,'%s\n','AFILE');
+    fprintf(fid,'%s\n','NACA2412.dat');
+    fprintf(fid,'%s\n','CLAF');
+    fprintf(fid,'%g\n',1);
+    fprintf(fid,'%s\n','# ----------------------------------------------------------');
+    fprintf(fid,'%s\n','SECTION');
+    fprintf(fid,'%s\n','# Xle Yle Zle Chord Ainc');
+    fprintf(fid,'%g %g %g %g %g\n',5, 15, 1, 1.5, 0);
+    fprintf(fid,'%s\n','AFILE');
+    fprintf(fid,'%s\n','NACA2412.dat');
+    fprintf(fid,'%s\n','CLAF');
+    fprintf(fid,'%g\n',1);
+%     fprintf(fid,'%s\n','# ----------------------------------------------------------');
+%     fprintf(fid,'%s\n','SECTION');
+%     fprintf(fid,'%s\n','# Xle Yle Zle Chord Ainc');
+%     fprintf(fid,'%g %g %g %g %g\n',13.2108, 25.7559, 2.69222, 0.21524, -1.30995);
+%     fprintf(fid,'%s\n','AFILE');
+%     fprintf(fid,'%s\n','AFsection3.dat');
+%     fprintf(fid,'%s\n','CLAF');
+%     fprintf(fid,'%g\n',1);
+fprintf(fid,'%s\n','# ==========================================================');
+    fprintf(fid,'%s\n','#                         WINGLET ');
+    fprintf(fid,'%s\n','# ==========================================================');
+    fprintf(fid,'%s\n','SURFACE');
+    fprintf(fid,'%s\n','Winglet');
+    fprintf(fid,'%s\n','# Nchord Cspace [ Nspan Sspace ]'); 
+    fprintf(fid,'%g %g %g %g\n',8, 1.0, 48, 0);
+    fprintf(fid,'%s\n','# Wing is symmetrical to y=0');
+    fprintf(fid,'%s\n','YDUPLICATE');
+    fprintf(fid,'%g\n',0);
+    fprintf(fid,'%s\n','INDEX');
+    fprintf(fid,'%g\n',1);
+    fprintf(fid,'%s\n','ANGLE');
+    fprintf(fid,'%g\n',0);
+    fprintf(fid,'%s\n','# ----------------------------------------------------------');
+    fprintf(fid,'%s\n','SECTION');
+    fprintf(fid,'%s\n','# Xle Yle Zle Chord Ainc');
+    fprintf(fid,'%g %g %g %g %g\n',xrlet, yrlet, zrlet, crlet, arlet);
+    fprintf(fid,'%s\n','AFILE');
+    fprintf(fid,'%s\n','NACA2412.dat');
+    fprintf(fid,'%s\n','CLAF');
+    fprintf(fid,'%g\n',1);
+    fprintf(fid,'%s\n','# ----------------------------------------------------------');
+    fprintf(fid,'%s\n','SECTION');
+    fprintf(fid,'%s\n','# Xle Yle Zle Chord Ainc');
+    fprintf(fid,'%g %g %g %g %g\n',xtlet, ytlet, ztlet, ctlet, atlet);
+    fprintf(fid,'%s\n','AFILE');
+    fprintf(fid,'%s\n','NACA2412.dat');
+    fprintf(fid,'%s\n','CLAF');
+    fprintf(fid,'%g\n',1);
+
+    
+fclose(fid);
+end
